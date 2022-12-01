@@ -7,3 +7,11 @@ Click and drag ingredients to build pizzas as fast as possible within the given 
 Take a moment to watch our trailer here (https://drive.google.com/file/d/1obKGzeX3KxKA1a5oKGmehPQKk4yuTHt9/view?usp=sharing)!
 
 A CS-3443-004-Fall-2022-Application Programming project worked on by Amalia Talijancic, Danny Ghrist, Caleb Pierce, Carlos Martinez, and Sarah Halverson. 
+
+Languages/Frameworks:
+ - Java 9.0.4
+ - JavaFX
+ - JavaFX CSS
+ - SceneBuilder 2.0
+ - Violet UML Editor
+ 
