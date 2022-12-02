@@ -10,7 +10,7 @@ A CS-3443-004-Fall-2022-Application Programming project worked on by Amalia Tali
 
 Languages/Frameworks:
  - Java 9.0.4
- - JavaFX
+ - JavaFX 2.0
  - JavaFX CSS
  - SceneBuilder 2.0
  - Violet UML Editor
