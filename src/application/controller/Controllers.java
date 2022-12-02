@@ -29,7 +29,7 @@ import javafx.util.Duration;
  * @author Danny Ghrist (kda458)
  *
  */
-public abstract class Controller {
+public abstract class Controllers {
 
     @FXML
     MediaPlayer mediaPlayer, mediaPlayerSFX, mediaBackground;
@@ -39,7 +39,7 @@ public abstract class Controller {
      * Constructs an object of the Controller class, however this is a helper class
      * and this is not used.
      */
-    public Controller() {
+    public Controllers() {
     }
 
     /**

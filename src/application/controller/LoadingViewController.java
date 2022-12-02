@@ -24,7 +24,7 @@ import javafx.scene.media.MediaView;
  * @author Danny Ghrist (kda458)
  *
  */
-public class LoadingViewController extends Controller implements Initializable {
+public class LoadingViewController extends Controllers implements Initializable {
 
     @FXML
     Button continueButton;

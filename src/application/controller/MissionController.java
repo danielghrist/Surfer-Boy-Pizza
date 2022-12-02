@@ -26,7 +26,7 @@ import javafx.scene.media.MediaView;
  * @author Danny Ghrist (kda458)
  *
  */
-public class MissionController extends Controller implements EventHandler<ActionEvent>, Initializable {
+public class MissionController extends Controllers implements EventHandler<ActionEvent>, Initializable {
 
     @FXML
     private MediaView media;

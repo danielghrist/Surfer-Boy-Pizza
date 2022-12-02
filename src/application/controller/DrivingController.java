@@ -28,7 +28,7 @@ import javafx.util.Duration;
  * @author Danny Ghrist (kda458)
  *
  */
-public class DrivingController extends Controller implements Initializable {
+public class DrivingController extends Controllers implements Initializable {
 
     @FXML
     ImageView pizzaTruck, roadImage;

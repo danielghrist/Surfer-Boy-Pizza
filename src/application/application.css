@@ -45,6 +45,7 @@ Text {
     /* THESE ARE BOTH UNKOWN PROPERTIES */
     -default-track-color: black;
     -track-color: black;
+    -fx-base: #ba3702;
 }
 .slider .thumb {
     -fx-background-color: #ba3702;

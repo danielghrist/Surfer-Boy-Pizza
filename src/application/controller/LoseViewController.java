@@ -32,7 +32,7 @@ import javafx.util.Duration;
  * @author Danny Ghrist (kda458)
  *
  */
-public class LoseViewController extends Controller implements Initializable {
+public class LoseViewController extends Controllers implements Initializable {
 
     @FXML
     Button tryAgainButton, exitButton;

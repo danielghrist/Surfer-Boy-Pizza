@@ -29,7 +29,7 @@ import javafx.util.Duration;
  * @author Sarah Halverson (llv920)
  *
  */
-public class PizzaFinishedController extends Controller implements EventHandler<ActionEvent>, Initializable {
+public class PizzaFinishedController extends Controllers implements EventHandler<ActionEvent>, Initializable {
 
     @FXML
     private Button homeButton, morePizzaButton, exitButton;

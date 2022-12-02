@@ -50,13 +50,10 @@ import javafx.util.Duration;
  * @author Amalia Talijancic
  * @author Carlos Martinez
  */
-public class MainController extends Controller implements EventHandler<ActionEvent>, Initializable {
+public class MainController extends Controllers implements EventHandler<ActionEvent>, Initializable {
 
     @FXML
     private AnchorPane titlePane;
-
-    // @FXML
-    // blackFadeImg1, blackFadeImg2, blackFadeImg3, blackFadeImg4;
 
     @FXML
     private ImageView logoImg, soundMessageImgView, blackFadeImg1, blackFadeImg2, blackFadeImg3, overallFade, lineTop,
@@ -354,11 +351,10 @@ public class MainController extends Controller implements EventHandler<ActionEve
     }
 
     /**
-     * This method exists for asthetic purposes, called when the user is finished
+     * This method exists for aesthetic purposes, called when the user is finished
      * dragging volume slider.
      */
     public void volumeSliderEndDrag() {
-        volumeSlider.setStyle("-fx-base: #ba3702;");
         Double newVal = volumeSlider.getValue();
         // set the master volume variable
     }

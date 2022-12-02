@@ -46,7 +46,7 @@ import javafx.scene.text.Text;
  * @author Danny Ghrist (kda458)
  *
  */
-public class GameViewController extends Controller implements EventHandler<ActionEvent>, Initializable {
+public class GameViewController extends Controllers implements EventHandler<ActionEvent>, Initializable {
 
     private Pizza buildPizza;
     private ArrayList<Label> ingredientLabels;
