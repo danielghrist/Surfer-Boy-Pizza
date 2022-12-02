@@ -1,10 +1,9 @@
 package application;
 
-import java.io.FileInputStream;
-
 import application.model.Player;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Dimension2D;
 import javafx.scene.ImageCursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -56,7 +55,9 @@ public class Main extends Application {
             primaryStage.show();
 
             // Set the cursor to the custom cursor upon switching Scenes.
-            Image myImage = new Image(new FileInputStream("src/application/images/normalSelect.png"));
+            Dimension2D cursorSize = ImageCursor.getBestSize(32.0, 32.0);
+            Image myImage = new Image("application/images/normalSelect.png", cursorSize.getWidth(),
+                    cursorSize.getHeight(), false, true);
             ImageCursor cursor = new ImageCursor(myImage, 0, 0);
             scene.getRoot().setCursor(cursor);
 

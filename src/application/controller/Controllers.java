@@ -1,6 +1,5 @@
 package application.controller;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.nio.file.Paths;
 
@@ -9,6 +8,7 @@ import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.Transition;
 import javafx.fxml.FXML;
+import javafx.geometry.Dimension2D;
 import javafx.scene.ImageCursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -49,7 +49,9 @@ public abstract class Controllers {
      * @throws FileNotFoundException (Exception)
      */
     public void setCursor(String imageName) throws FileNotFoundException {
-        Image myImage = new Image(new FileInputStream("src/application/images/" + imageName + ".png"));
+        Dimension2D cursorSize = ImageCursor.getBestSize(32.0, 32.0);
+        Image myImage = new Image("application/images/" + imageName + ".png", cursorSize.getWidth(),
+                cursorSize.getHeight(), false, true);
         ImageCursor cursor = new ImageCursor(myImage, 0, 0);
         Scene scene = Main.stage.getScene();
         scene.getRoot().setCursor(cursor);

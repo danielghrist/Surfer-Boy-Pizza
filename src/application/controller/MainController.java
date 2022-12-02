@@ -150,8 +150,8 @@ public class MainController extends Controllers implements EventHandler<ActionEv
                  * // finish = System.currentTimeMillis(); // lastTimeElapsed = timeElapsed;
                  * //timeElapsed += 1.0;
                  * 
-                 * // TODO Auto-generated method stub // animateTitle(titleVBox, titleHBox1,
-                 * titleHBox2); // System.out.print("running animation\n");
+                 * // animateTitle(titleVBox, titleHBox1, titleHBox2); //
+                 * System.out.print("running animation\n");
                  * 
                  * // stretch = (500*((exp(-timeElapsed/3000.0)))-.1); //stretch -= .41; //
                  * System.out.print("done calculation\n");
@@ -235,7 +235,7 @@ public class MainController extends Controllers implements EventHandler<ActionEv
                 }
             }
         };
-        startTimerToRunOnce.schedule(startTaskCredits, 40260);
+        startTimerToRunOnce.schedule(startTaskCredits, 32000);
 
         randomizedTranslationAnimation(titleVBox, titleHBox1, titleHBox2, -600, 600, -400, 900);
         linesAnimation();
@@ -539,12 +539,13 @@ public class MainController extends Controllers implements EventHandler<ActionEv
      * Hard-coded animations for the lines.
      */
     public void linesAnimation() {
-        TranslateTransition ttLL = new TranslateTransition(Duration.millis(30000), lineLeft);
-        TranslateTransition ttLR = new TranslateTransition(Duration.millis(30000), lineRight);
-        TranslateTransition ttLT = new TranslateTransition(Duration.millis(30000), lineTop);
-        TranslateTransition ttLL2 = new TranslateTransition(Duration.millis(30000), lineLeft2);
-        TranslateTransition ttLR2 = new TranslateTransition(Duration.millis(30000), lineRight2);
-        TranslateTransition ttLB = new TranslateTransition(Duration.millis(30000), lineBottom);
+        int translationTime = 30000;
+        TranslateTransition ttLL = new TranslateTransition(Duration.millis(translationTime), lineLeft);
+        TranslateTransition ttLR = new TranslateTransition(Duration.millis(translationTime), lineRight);
+        TranslateTransition ttLT = new TranslateTransition(Duration.millis(translationTime), lineTop);
+        TranslateTransition ttLL2 = new TranslateTransition(Duration.millis(translationTime), lineLeft2);
+        TranslateTransition ttLR2 = new TranslateTransition(Duration.millis(translationTime), lineRight2);
+        TranslateTransition ttLB = new TranslateTransition(Duration.millis(translationTime), lineBottom);
         ttLL.setToX(-40);
         ttLL.setToY(-45);
         ttLR.setToX(25);
