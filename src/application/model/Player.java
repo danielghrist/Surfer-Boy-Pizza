@@ -11,7 +11,7 @@ package application.model;
  */
 public class Player {
 
-    // TEMPORARY TIME VARIABLES BEFORE DIFFICULTY IMPLEMENTED.
+    // Time constants depending on difficulty selected, saved to the save file.
     public final int DEMOGORGON_COUNTDOWN_MINUTES = 5;
     public final int DEMOGORGON_TIME_REDUCTION_FOR_ERROR = 5;
     public final int DEMOGORGON_PIZZAS_TO_MAKE = 5;
@@ -22,25 +22,21 @@ public class Player {
     public final int VECNA_TIME_REDUCTION_FOR_ERROR = 30;
     public final int VECNA_PIZZAS_TO_MAKE = 20;
 
-//    public final int COUNTDOWN_MINUTES = 5;
-//    public final int TIME_REDUCTION_FOR_ERROR = 30;
-
     private String name;
     private int numPizzasToMake;
     private int numPizzasMade;
     private int numPizzasRemaining;
     private int countdownMinutes;
     private int errorReductionSecs;
+    private double volume;
 
     /**
-     * Constructs Player and sets the difficulty which in turn sets the countdown
+     * Constructs Player and sets the difficulty which in turn sets the count down
      * timer, number of pizzas to make and the reduction in seconds for errors.
      */
     public Player() {
-//        this.numPizzasToMake = numPizzasToMake;
         this.setDifficulty("default");
         this.numPizzasMade = 0;
-//        this.numPizzasRemaining = numPizzasToMake;
     }
 
     /**
@@ -185,4 +181,21 @@ public class Player {
         this.errorReductionSecs = errorReductionSecs;
     }
 
+    /**
+     * Returns the volume set using the slider in the Options menu on the Main view.
+     * 
+     * @return The volume for all scenes in options (double)
+     */
+    public double getVolume() {
+        return this.volume;
+    }
+
+    /**
+     * Sets the volume using the slider in the Options menu on the Main view.
+     * 
+     * @param volume The volume to set for all scenes (double)
+     */
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
 }

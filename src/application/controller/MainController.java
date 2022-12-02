@@ -133,7 +133,6 @@ public class MainController extends Controllers implements EventHandler<ActionEv
         pizzaStartButton.setVisible(false);
         optionsButton.setVisible(false);
         exitButton.setVisible(false);
-        volumeSlider.setStyle("-fx-base: #ba3702;");
 
         volumeSliderStartDrag();
         radioButtonArray.add(easyRB);
@@ -318,11 +317,10 @@ public class MainController extends Controllers implements EventHandler<ActionEv
     }
 
     /**
-     * This method exists for asthetic purposes. it sets the fill gradient for the
+     * This method exists for aesthetic purposes. it sets the fill gradient for the
      * slider.
      */
     public void volumeSliderStartDrag() {
-        volumeSlider.setStyle("-fx-base: #ba3702;");
         Double newVal = volumeSlider.getValue();
         double percentage = 100.0 * newVal.doubleValue() / volumeSlider.getMax();
         String style = String.format(
@@ -347,6 +345,7 @@ public class MainController extends Controllers implements EventHandler<ActionEv
                             + "\n-fx-base: #ba3702;",
                     percentage2);
             volumeSlider.setStyle(style2);
+            Main.user.setVolume(volumeSlider.getValue() / 100.0);
         });
     }
 
@@ -355,8 +354,10 @@ public class MainController extends Controllers implements EventHandler<ActionEv
      * dragging volume slider.
      */
     public void volumeSliderEndDrag() {
-        Double newVal = volumeSlider.getValue();
-        // set the master volume variable
+        Double playerVolume = volumeSlider.getValue();
+
+        // Set the master volume variable
+        Main.user.setVolume(playerVolume / 100.0);
     }
 
     /**
@@ -380,7 +381,6 @@ public class MainController extends Controllers implements EventHandler<ActionEv
     public void saveButtonClicked() throws IOException {
         FileWriter file = new FileWriter("src/application/config/config.txt");
         PrintWriter write = new PrintWriter(file);
-        write.write("");
         String volumeString = "" + ((int) volumeSlider.getValue());
         String difficultyString = "";
         if (easyRB.isSelected()) {
@@ -395,10 +395,13 @@ public class MainController extends Controllers implements EventHandler<ActionEv
         // pizzas to make.
         Main.user.setDifficulty(difficultyString);
 
-        write.write(volumeString + "\n" + difficultyString);
+        write.write((Double.parseDouble(volumeString) / 100.0) + "\n" + difficultyString);
         write.close();
+        file.close();
+        volumeSlider.setValue(Main.user.getVolume() * 100.0);
         playSound("buttonClick");
-        // save to a config.txt file
+
+        // Save to a config.txt file
         toggleOptionsButtons();
     }
 
@@ -416,7 +419,7 @@ public class MainController extends Controllers implements EventHandler<ActionEv
      * @param event Listens for event (ActionEvent)
      */
     public void radioButtonClicked(ActionEvent event) {
-        // unckeck radio buttons that weren't clicked
+        // Uncheck radio buttons that weren't clicked
         RadioButton radioButtonPushed = (RadioButton) event.getSource();
         if (radioButtonPushed.getId().equals("easyRB")) {
             if (radioButtonPushed.isSelected()) {
@@ -483,7 +486,8 @@ public class MainController extends Controllers implements EventHandler<ActionEv
         // pizzas to make.
         Main.user.setDifficulty(storedDifficulty);
 
-        volumeSlider.setValue(Integer.parseInt(storedVolume));
+        Main.user.setVolume(Double.parseDouble(storedVolume));
+        volumeSlider.setValue(Main.user.getVolume() * 100.0);
         scan.close();
     }
 
@@ -532,7 +536,7 @@ public class MainController extends Controllers implements EventHandler<ActionEv
     }
 
     /**
-     * Hardcoded animations for the lines.
+     * Hard-coded animations for the lines.
      */
     public void linesAnimation() {
         TranslateTransition ttLL = new TranslateTransition(Duration.millis(30000), lineLeft);

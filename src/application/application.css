@@ -34,7 +34,6 @@ Text {
     -fx-background-color: #ba3702;
     -fx-border-color: black;
     -fx-text-fill: black;
-    
 }
 
 .label {
@@ -47,6 +46,7 @@ Text {
     -track-color: black;
     -fx-base: #ba3702;
 }
+
 .slider .thumb {
     -fx-background-color: #ba3702;
 }
@@ -55,12 +55,13 @@ Text {
     -fx-background-color: #ba3702,
     linear-gradient(to bottom, #ba3702, -fx-text-box-border),
     -track-color;
-          
 }
+
 .radio-button:selected .radio .dot {
     -fx-background-color: black;
     -fx-background-insets: 0;
 }
+
 .radio-button .radio {
     -fx-background-color: #ba3702;
     -fx-background-insets: 1;

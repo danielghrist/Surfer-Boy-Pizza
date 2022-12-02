@@ -116,6 +116,7 @@ public abstract class Controllers {
         mediaPlayer = new MediaPlayer(music);
         mediaPlayer.autoPlayProperty();
         mediaPlayer.setCycleCount(-1);
+        mediaPlayer.setVolume(Main.user.getVolume());
         mediaPlayer.play();
         // mediaPlayer.setStartTime(Duration.seconds(0));
         // mediaPlayer.setAutoPlay(true);
@@ -130,6 +131,7 @@ public abstract class Controllers {
         String s = "src/application/audio/" + soundName + ".mp3";
         Media soundEffect = new Media(Paths.get(s).toUri().toString());
         mediaPlayerSFX = new MediaPlayer(soundEffect);
+        mediaPlayerSFX.setVolume(Main.user.getVolume());
         mediaPlayerSFX.play();
         // mediaPlayer.setStartTime(Duration.seconds(0));
         // mediaPlayer.setAutoPlay(true);
@@ -148,6 +150,7 @@ public abstract class Controllers {
         mediaBackground = new MediaPlayer(media1);
         mediaBackground.setAutoPlay(true);
         mediaBackground.setCycleCount(cycleCount);
+        mediaBackground.setVolume(Main.user.getVolume());
         mediaVideo.setMediaPlayer(mediaBackground);
     }
 }
