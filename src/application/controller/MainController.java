@@ -119,17 +119,8 @@ public class MainController extends Controllers implements EventHandler<ActionEv
         playFadeOutSoundMessageTransition(5, soundMessageImgView);
         playVideo("mainMenuBackground", -1, backgroundMedia);
         playFadeInTransition(2, titleVBox);
-        // Play FadeTransitions
         playFadeInTransition(20, logoImg);
-        // playFadeTransition(15, pizzaStartButton);
-        // playFadeTransition(15, optionsButton);
-        // playFadeTransition(15, exitButton);
 
-        // blackFadeImg4.setVisible(false);
-        /*
-         * playFadeTransition(15, blackFadeImg2); playFadeTransition(15, blackFadeImg3);
-         * playFadeTransition(15, blackFadeImg4);
-         */
         pizzaStartButton.setVisible(false);
         optionsButton.setVisible(false);
         exitButton.setVisible(false);
@@ -146,32 +137,6 @@ public class MainController extends Controllers implements EventHandler<ActionEv
 
             @Override
             public void run() {
-                /*
-                 * // finish = System.currentTimeMillis(); // lastTimeElapsed = timeElapsed;
-                 * //timeElapsed += 1.0;
-                 * 
-                 * // animateTitle(titleVBox, titleHBox1, titleHBox2); //
-                 * System.out.print("running animation\n");
-                 * 
-                 * // stretch = (500*((exp(-timeElapsed/3000.0)))-.1); //stretch -= .41; //
-                 * System.out.print("done calculation\n");
-                 * 
-                 * //if (stretch > 0) { // System.out.print("set stretch\n");
-                 * //titleVBox.setSpacing(stretch * 3.5); //titleHBox1.setSpacing(stretch *
-                 * 1.8); //titleHBox2.setSpacing(stretch * 1.8); }else if (stretch <= 0) {
-                 * pizzaStartButton.setVisible(true); optionsButton.setVisible(true);
-                 * exitButton.setVisible(true); // blackFadeImg1.setVisible(true);
-                 * 
-                 * if (!areButtonsTransitioned && skipButton.isVisible()) {
-                 * pizzaStartButton.setOpacity(0); optionsButton.setOpacity(0);
-                 * exitButton.setOpacity(0); playFadeTransition(3, pizzaStartButton);
-                 * playFadeTransition(3, optionsButton); playFadeTransition(3, exitButton);
-                 * skipButton.setVisible(false); // playFadeTransition(3, blackFadeImg1);
-                 * areButtonsTransitioned = true; } } else if (skipButton.isVisible() == false
-                 * && stretch > 0) { pizzaStartButton.setOpacity(1);
-                 * optionsButton.setOpacity(1); exitButton.setOpacity(1);
-                 * titleVBox.setOpacity(1); }
-                 */
             }
         };
         timer.scheduleAtFixedRate(task, 0, 30);
@@ -186,11 +151,7 @@ public class MainController extends Controllers implements EventHandler<ActionEv
                 if (!areButtonsTransitioned) {
                     playFadeInTransition(3, menuBackPane);
                     pizzaStartButton.setVisible(true);
-                    // optionsButton.setVisible(true);
-                    // exitButton.setVisible(true);
                     playFadeInTransition(.5, pizzaStartButton);
-                    // playFadeInTransition(3, optionsButton);
-                    // playFadeInTransition(3, exitButton);
                     skipButton.setVisible(false);
                     overallFade.setVisible(false);
                     soundMessageImgView.setVisible(false);
@@ -595,16 +556,6 @@ public class MainController extends Controllers implements EventHandler<ActionEv
      */
     public void randomizedTranslationAnimation(VBox titleVB, HBox titleHB1, HBox titleHB2, int minX, int maxX, int minY,
             int maxY) {
-        /*
-         * ObservableList<Node> listVB = titleVB.getChildren(); for(int v = 0;
-         * v<listVB.size(); v++) { TranslateTransition ttv = new
-         * TranslateTransition(Duration.millis(30000), listVB.get(v));
-         * arrayOfAnimations.add(ttv); int randomNum =
-         * ThreadLocalRandom.current().nextInt(minX, maxX); ttv.setFromX(randomNum);
-         * ttv.setToX(listVB.get(v).getTranslateX()); randomNum =
-         * ThreadLocalRandom.current().nextInt(minY, maxY); ttv.setFromY(randomNum);
-         * ttv.setToY(listVB.get(v).getTranslateY()); ttv.play(); }
-         */
         ObservableList<Node> listH1 = titleHB1.getChildren();
         for (int h1 = 0; h1 < listH1.size(); h1++) {
             TranslateTransition ttH1 = new TranslateTransition(Duration.millis(30000), listH1.get(h1));
@@ -630,30 +581,6 @@ public class MainController extends Controllers implements EventHandler<ActionEv
             ttH2.play();
         }
     }
-
-    /*
-     * public void animateTitle(VBox titleVB, HBox titleHB1, HBox titleHB2) { double
-     * Stretch =
-     * Duration.millis(secondsToStretch*1000).toMillis()-(timeElapsed/1000);
-     * if(Stretch>0) { titleVB.setSpacing(Stretch); titleHB1.setSpacing(Stretch);
-     * titleHB2.setSpacing(Stretch); } }
-     * 
-     * public void playAnimateTitle(double seconds, VBox titleVB, HBox titleHB1,
-     * HBox titleHB2) { ======= >>>>>>> branch 'main' of
-     * https://github.com/UTSA-CS-3443/Delivery-Service ======= >>>>>>> branch
-     * 'main' of https://github.com/UTSA-CS-3443/Delivery-Service
-     * 
-     * /* public void animateTitle(VBox titleVB, HBox titleHB1, HBox titleHB2) {
-     * double Stretch =
-     * Duration.millis(secondsToStretch*1000).toMillis()-(timeElapsed/1000);
-     * if(Stretch>0) { titleVB.setSpacing(Stretch); titleHB1.setSpacing(Stretch);
-     * titleHB2.setSpacing(Stretch); } }
-     * 
-     * public void playAnimateTitle(double seconds, VBox titleVB, HBox titleHB1,
-     * HBox titleHB2) {
-     * 
-     * }
-     */
 
     /**
      * 
